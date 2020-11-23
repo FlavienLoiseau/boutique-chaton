@@ -4,13 +4,15 @@
     <title>BoutiqueChaton</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <!-- Lumen CSS (includes Bootstrap)-->
+    <!-- <link href="../assets/stylesheets/lumen.css" rel="stylesheet" /> -->
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
     <h1>Salut la team</h1>
+    <h3>J'ai rajouté le CSS, est-ce que ça marche?</h3>
     <%= yield %>
   </body>
 </html>
