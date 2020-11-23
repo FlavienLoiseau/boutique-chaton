@@ -1,0 +1,16 @@
+<h1>Product#index</h1>
+<p>Find me in app/views/product/index.html.erb</p>
+<div class="container">
+
+    <div class="row justify-content-md-center">
+    <% @products.each_with_index do |product, index| %>
+        <div class="col-lg-4">
+            <div class="card m-4 " style="width: 22rem; height: 90%">
+                <div class="card-body">
+                    <h4 class="card-title"><%= product.title%></h4>
+                </div>
+            </div>
+        </div>
+    <% end %>
+    </div>
+</div>
