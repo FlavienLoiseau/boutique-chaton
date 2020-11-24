@@ -24,6 +24,8 @@ class CartsController < ApplicationController
   # POST /carts
   # POST /carts.json
   def create
+    @product = Product.find(params[:product_id])
+    @line_item = LineItem.create(product: @product,)
     @cart = Cart.new(cart_params)
 
     respond_to do |format|
