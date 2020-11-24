@@ -17,7 +17,7 @@
         <h1 class="card-title pricing-card-title text-center"><%= product.price %></h1>
         <div class="card-body">
           <%= link_to  "Détails", product_path(product.id), class:"btn btn-pirmary" %>
-          <%= link_to  "Ajouter au panier", carts_path(product_id: product.id), class:"btn btn-secondary" %>
+          <%= link_to  "Ajouter au panier", line_items_path(product_id: product.id), method: :post, class:"btn btn-secondary" %>
         </div>
       </div>
     </div>
