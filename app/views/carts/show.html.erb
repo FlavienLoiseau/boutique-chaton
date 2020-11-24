@@ -108,7 +108,7 @@
             </li>
           </ul>
 
-          <button type="button" class="btn btn-primary btn-block">Procéder au paiement</button>
+          <%= button_to  "Procéder au paiement", checkout_create_path, method: :post, params: {cart_id: @cart.id}, remote: true, class:"btn btn-primary btn-block" %>
 
         </div>
       </div>

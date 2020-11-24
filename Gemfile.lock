@@ -81,6 +81,10 @@ GEM
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
+    dotenv (2.7.6)
+    dotenv-rails (2.7.6)
+      dotenv (= 2.7.6)
+      railties (>= 3.2)
     erubi (1.10.0)
     faker (2.14.0)
       i18n (>= 1.6, < 2)
@@ -181,6 +185,7 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
+    stripe (5.28.0)
     table_print (1.5.7)
     thor (1.0.1)
     thread_safe (0.3.6)
@@ -220,6 +225,8 @@ DEPENDENCIES
   byebug
   capybara (>= 2.15)
   devise
+  dotenv-rails
+  dotenv
   faker
   font-awesome-rails
   jbuilder (~> 2.7)
@@ -231,6 +238,7 @@ DEPENDENCIES
   selenium-webdriver
   spring
   spring-watcher-listen (~> 2.0.0)
+  stripe
   table_print
   turbolinks (~> 5)
   tzinfo-data
