@@ -4276,6 +4276,13 @@ input[type="button"].btn-block {
   list-style: none;
 }
 
+.cart:hover {
+  margin-top: 1px;
+  border-bottom-width: 3px;
+  background-color: transparent;
+}
+
+
 .nav-link {
   display: block;
   padding: 0.5rem 1rem;
@@ -4364,6 +4371,7 @@ input[type="button"].btn-block {
 
 .navbar {
   position: relative;
+  height: 65px;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-wrap: wrap;
@@ -4770,6 +4778,7 @@ input[type="button"].btn-block {
   color: #fff;
 }
 
+
 .card {
   position: relative;
   display: -ms-flexbox;
@@ -4785,7 +4794,7 @@ input[type="button"].btn-block {
 }
 
 .card:hover {
-
+    margin-top: 1px;
     box-shadow:  1px 1px 2px 3px #E8E8E8;
 }
 
