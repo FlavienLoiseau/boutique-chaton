@@ -82,6 +82,9 @@ GEM
       responders
       warden (~> 1.2.3)
     dotenv (2.7.6)
+    dotenv-rails (2.7.6)
+      dotenv (= 2.7.6)
+      railties (>= 3.2)
     erubi (1.10.0)
     faker (2.14.0)
       i18n (>= 1.6, < 2)
@@ -222,6 +225,7 @@ DEPENDENCIES
   byebug
   capybara (>= 2.15)
   devise
+  dotenv-rails
   dotenv
   faker
   font-awesome-rails
