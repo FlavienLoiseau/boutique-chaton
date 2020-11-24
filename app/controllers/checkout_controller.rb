@@ -1,8 +1,8 @@
 class CheckoutController < ApplicationController
     def create
-        product = Product.find(params[:id])
+        cart = Cart.find(params[:cart_id])
 
-        if product.nil?
+        if cart.nil?
           redirect_to root_path
           return
         end
@@ -12,9 +12,9 @@ class CheckoutController < ApplicationController
         @session = Stripe::Checkout::Session.create({
             payment_method_types: ['card'],
             line_items: [{
-                    name: product.title,
-                    description: product.description,
-                    amount: (product.price* 100).to_i,
+                    name: "Votre panier",
+                    description: "Description ici",
+                    amount: 42*100,
                     currency: 'eur',
                     quantity: 1
                   }],
