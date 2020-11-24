@@ -60,6 +60,10 @@ article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
   display: block;
 }
 
+html, body {
+  height: 100%;
+}
+
 body {
   margin: 0;
   font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
@@ -69,6 +73,36 @@ body {
   color: #222;
   text-align: left;
   background-color: #fff;
+  display: flex;
+  flex-direction: column;
+}
+
+.content {
+  flex: 1 0 auto;
+}
+
+
+footer {
+position:relative;
+bottom:0;
+left: 0;
+width: 100%;
+color: white;
+text-align: center;
+background-color: #555;
+/* display: flex;
+flex-direction: column;
+justify-content: flex-end; */
+flex-shrink: 0;
+}
+
+.img-avatar {
+  object-fit: cover;
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  max-width: 100%;
+  border: 1px solid #DCDCDC;
 }
 
 [tabindex="-1"]:focus:not(:focus-visible) {
@@ -169,16 +203,24 @@ a {
 a:hover {
   color: #0d5875;
   text-decoration: underline;
+  background-color: transparent;
 }
 
 a:not([href]):not([class]) {
   color: inherit;
   text-decoration: none;
+    background-color: transparent;
 }
 
 a:not([href]):not([class]):hover {
   color: inherit;
   text-decoration: none;
+    background-color: transparent;
+}
+
+.promo-link:hover {
+      background-color: transparent;
+      color:gray;
 }
 
 pre,
@@ -2166,7 +2208,9 @@ textarea.form-control {
 
 .form-group {
   margin-bottom: 1rem;
+  max-width: 500px;
 }
+
 
 .form-text {
   display: block;
@@ -4232,6 +4276,13 @@ input[type="button"].btn-block {
   list-style: none;
 }
 
+.cart:hover {
+  margin-top: 1px;
+  border-bottom-width: 3px;
+  background-color: transparent;
+}
+
+
 .nav-link {
   display: block;
   padding: 0.5rem 1rem;
@@ -4320,6 +4371,7 @@ input[type="button"].btn-block {
 
 .navbar {
   position: relative;
+  height: 65px;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-wrap: wrap;
@@ -4355,6 +4407,7 @@ input[type="button"].btn-block {
 
 .navbar-brand:hover, .navbar-brand:focus {
   text-decoration: none;
+  background-color: transparent;
 }
 
 .navbar-nav {
@@ -4641,6 +4694,7 @@ input[type="button"].btn-block {
 
 .navbar-light .navbar-nav .nav-link:hover, .navbar-light .navbar-nav .nav-link:focus {
   color: rgba(0, 0, 0, 0.7);
+
 }
 
 .navbar-light .navbar-nav .nav-link.disabled {
@@ -4689,6 +4743,7 @@ input[type="button"].btn-block {
 
 .navbar-dark .navbar-nav .nav-link:hover, .navbar-dark .navbar-nav .nav-link:focus {
   color: rgba(255, 255, 255, 0.75);
+    background-color: transparent;
 }
 
 .navbar-dark .navbar-nav .nav-link.disabled {
@@ -4723,6 +4778,7 @@ input[type="button"].btn-block {
   color: #fff;
 }
 
+
 .card {
   position: relative;
   display: -ms-flexbox;
@@ -4736,6 +4792,18 @@ input[type="button"].btn-block {
   border: 1px solid rgba(0, 0, 0, 0.125);
   border-radius: 0.25rem;
 }
+
+.card:hover {
+    margin-top: 1px;
+    box-shadow:  1px 1px 2px 3px #E8E8E8;
+}
+
+.card-top-image {
+    object-fit: cover;
+    height: 15vw;
+    min-height: 200px;
+}
+
 
 .card > hr {
   margin-right: 0;
