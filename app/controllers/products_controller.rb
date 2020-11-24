@@ -1,4 +1,4 @@
-class ProductController < ApplicationController
+class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :destroy, :update]
 
   def index
@@ -11,7 +11,7 @@ class ProductController < ApplicationController
 
   def create
     @product=Product.new
-    if @product.save 
+    if @product.save
       flash[:success] = "Votre produit a bien été créé !"
       redirect_to root
     else
@@ -21,7 +21,7 @@ class ProductController < ApplicationController
   end
 
   def show
-    
+
   end
 
   def destroy
@@ -40,5 +40,3 @@ class ProductController < ApplicationController
 
 
 end
-
-
