@@ -9,4 +9,15 @@ class Cart < ApplicationRecord
         end
         return total
     end
+
+    def add_product(product)
+        item = self.line_items.find_by(product_id: product)
+        if item
+            item.quantity += 1
+        else
+            item = line_items.new(product: product)
+        end
+        return item
+    end
+
 end
