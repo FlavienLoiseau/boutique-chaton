@@ -15,7 +15,7 @@ class CheckoutController < ApplicationController
             names << line_item.product.title
          end
          return names.map{|k,v| "#{k}"}.join(', ')
-          
+
         end
 
 
@@ -33,15 +33,13 @@ class CheckoutController < ApplicationController
         })
 
 
-
         respond_to do |format|
             format.js #render create.js.erb
         end
-
-
     end
-    
+
     def success
+
     end
     def cancel
     end
