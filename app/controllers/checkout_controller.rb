@@ -29,7 +29,7 @@ class CheckoutController < ApplicationController
                     quantity: 1
                   }],
             success_url: checkout_success_url,
-            cancel_url: checkout_cancel_url,
+            cancel_url: cart_url(cart),
         })
 
 
