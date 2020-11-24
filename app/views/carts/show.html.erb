@@ -1,7 +1,135 @@
 <p id="notice"><%= notice %></p>
-<% @cart.line_items.each do |line_item| %>
-<p><%= line_item.product.title %></p>
-<% end %>
-<br>
-<%= link_to 'Edit', edit_cart_path(@cart) %> |
-<%= link_to 'Back', carts_path %>
+
+<section>
+  <div class="row mt-4">
+    <div class="col-lg-8">
+      <div class="mb-3">
+        <div class="pt-4 wish-list">
+          <h5 class="mb-4">Votre panier (<span><%= @cart.line_items.count %></span> articles)</h5>
+          <% @cart.line_items.each do |line_item| %>
+          <div class="row mb-4">
+            <div class="col-md-5 col-lg-3 col-xl-3">
+              <div class="view zoom overlay z-depth-1 rounded mb-3 mb-md-0">
+                <img class="img-fluid w-100" src="https://ds1.static.rtbf.be/article/image/624x351/8/2/c/a269962fe1424e1ca3e68c328b9fed61-1464085247.jpg" alt="Sample">
+                <a href="#!">
+                  <div class="mask">
+                    <div class="mask rgba-black-slight"></div>
+                  </div>
+                </a>
+              </div>
+            </div>
+            <div class="col-md-7 col-lg-9 col-xl-9">
+              <div>
+                <div class="d-flex justify-content-between">
+                  <div>
+                    <h5><%= line_item.product.title %></h5>
+                    <p class="mb-3 text-muted text-uppercase small"><%= line_item.product.description %></p>
+                  </div>
+                  <div>
+                    <div class="def-number-input number-input safari_only mb-0 w-100">
+                      <i class="fas fa-minus"></i>
+                      <span class="h6 mx-4"><%= line_item.quantity %></span>
+                      <i class="fas fa-plus"></i>
+                    </div>
+                    <small id="passwordHelpBlock" class="form-text text-muted text-center">
+                      (Note, 1 piece)
+                    </small>
+                  </div>
+                </div>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div>
+                    <a href="#!" type="button" class="btn btn-outline-danger"><i class="fas fa-trash-alt mr-1"></i> Supprimer l'article </a>
+                  </div>
+                  <p class="mb-0"><span><strong id="summary"><%= line_item.product.price %> €</strong></span></p class="mb-0">
+                </div>
+              </div>
+            </div>
+          </div>
+          <hr class="mb-4">
+          <% end %>
+          <p class="text-primary mb-0"><i class="fas fa-info-circle mr-1"></i> Ne remettez pas votre achat à plus tard, rajouter des articles à votre panier ne vous garantit
+            pas leur disponibilité plus tard.</p>
+
+        </div>
+      </div>
+      <!-- Card -->
+
+      <!-- Card -->
+      <div class="mb-3">
+        <div class="pt-4">
+
+          <h5 class="mb-4">Nous acceptons</h5>
+
+          <img class="mr-2" width="45px" src="https://mdbootstrap.com/wp-content/plugins/woocommerce-gateway-stripe/assets/images/visa.svg" alt="Visa">
+          <img class="mr-2" width="45px" src="https://mdbootstrap.com/wp-content/plugins/woocommerce-gateway-stripe/assets/images/amex.svg" alt="American Express">
+          <img class="mr-2" width="45px" src="https://mdbootstrap.com/wp-content/plugins/woocommerce-gateway-stripe/assets/images/mastercard.svg" alt="Mastercard">
+          <img class="mr-2" width="45px" src="https://mdbootstrap.com/wp-content/plugins/woocommerce/includes/gateways/paypal/assets/images/paypal.png" alt="PayPal acceptance mark">
+        </div>
+      </div>
+      <!-- Card -->
+
+    </div>
+    <!--Grid column-->
+
+    <!--Grid column-->
+    <div class="col-lg-4">
+
+      <!-- Card -->
+      <div class="mb-3">
+        <div class="pt-4">
+
+          <h5 class="mb-3">Le total de votre panier</h5>
+
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 pb-0">
+              Somme
+              <span>$25.98</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center px-0">
+              Livraison
+              <span>Gratuit</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 mb-3">
+              <div>
+                <strong>Total</strong>
+                <strong>
+                  <p class="mb-0">(TVA incluse)</p>
+                </strong>
+              </div>
+              <span><strong>Prix €</strong></span>
+            </li>
+          </ul>
+
+          <button type="button" class="btn btn-primary btn-block">Procéder au paiement</button>
+
+        </div>
+      </div>
+      <!-- Card -->
+
+      <!-- Card -->
+      <div class="mb-3">
+        <div class="pt-4">
+
+          <a class="promo-link d-flex justify-content-between" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+            Code promotionnel (optionnel)
+            <span><i class="fas fa-chevron-down pt-1"></i></span>
+          </a>
+
+          <div class="collapse" id="collapseExample">
+            <div class="mt-3">
+              <div class="md-form md-outline mb-0">
+                <input type="text" id="discount-code" class="form-control font-weight-light" placeholder="Code promotionnel">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Card -->
+
+    </div>
+    <!--Grid column-->
+
+  </div>
+  <!-- Grid row -->
+
+</section>
