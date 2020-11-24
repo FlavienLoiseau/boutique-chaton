@@ -21,19 +21,32 @@
         <a class="nav-link" href="#">Contact</a>
       </li>
     </ul>
-      <a class="cart nav-item nav-link mr-5" href="#"><i class="fas fa-cart-arrow-down" style="color: white; font-size: 20px;"></i></a>
+      <a class="cart nav-item nav-link mr-5" href="#"><i class="fas fa-cart-arrow-down" style="color: white; font-size: 18px;"></i></a>
 
-    <form class="form-inline my-2 my-lg-0">
-      <div class="nav-item dropdown">
-        <a class="btn btn-outline-secondary dropdown-toggle" style="color:white" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Connexion</a>
-        <div class="dropdown-menu">
-          <a class="dropdown-item" href="#">Connexion</a>
-          <a class="dropdown-item" href="#">Inscription</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Mon profil</a>
-          <a class="dropdown-item" href="#">Deconnexion</a>
+      <%if user_signed_in?%>
+        <div class="nav-item dropdown">
+          <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:black">
+            <%= current_user.first_name %> <%= current_user.last_name %>
+          </a>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" <%= link_to "Mon profil" %></a>
+              <a class="dropdown-item" <%= link_to "Se déconnecter", destroy_user_session_path, method: :delete %></a>
+            </div>
         </div>
-      </div>
-    </form>
+
+
+        <%else%>
+
+        <div class="nav-item dropdown">
+          <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            inscription/connexion
+          </a>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" <%= link_to "S'inscrire", new_user_registration_path %></a>
+              <a class="dropdown-item" <%= link_to "Se connecter", new_user_session_path %></a>
+            </div>
+        </div>
+
+        <%end%>
   </div>
 </nav>
