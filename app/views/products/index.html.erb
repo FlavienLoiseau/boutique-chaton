@@ -18,6 +18,8 @@
         <div class="card-body">
           <%= link_to  "Détails", product_path(product.id), class:"btn btn-pirmary" %>
           <a href="#" class="btn btn-secondary">Ajouter au panier</a>
+          <%= button_to  "Buy now", checkout_create_path, method: :post, params: {id: product.id}, remote: true %>
+
         </div>
       </div>
     </div>
@@ -45,3 +47,4 @@
     </div>
   </div>
 </div>
+
