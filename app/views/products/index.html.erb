@@ -1,0 +1,47 @@
+<h1 class="mt-5 text-center">Components</h1>
+<hr>
+<h2 class="pl-5">Les cartes chats</h2>
+
+
+<div class="d-flex">
+  <div class="row justify-content-center">
+    <% @products.each do |product| %>
+    <div class="col-lg-3 col-md-5 col-sm-10 col-xs-12 m-4">
+      <div class="card mb-3">
+        <img src="https://www.popfixion.fr/upload/news/unes/20150301_034854Felix_thewonderful_cat.jpg" class="card-top-image d-block user-select-none img-fluid" width="100%" height="200" aria-label="Placeholder: Image cap" focusable="false" role="img" preserveAspectRatio="xMidYMid slice" viewBox="0 0 318 180" style="font-size:1.125rem;text-anchor:middle">
+        <div class="card-body">
+          <h5 class="card-title"><%= product.title %></h5>
+          <h6 class="card-subtitle text-muted">Il siffle mais il parle pas beaucoup</h6>
+          <p class="card-text"><%= product.description %></p>
+        </div>
+        <h1 class="card-title pricing-card-title text-center"><%= product.price %></h1>
+        <div class="card-body">
+          <%= link_to  "Détails", product_path(product.id), class:"btn btn-pirmary" %>
+          <a href="#" class="btn btn-secondary">Ajouter au panier</a>
+        </div>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>
+
+<hr>
+<h2 class="pl-5">Les pages articles</h2>
+<div class="d-flex">
+  <div class="row justify-content-center">
+    <div class="col-lg-8 col-md-8 col-sm-11 col-xs-11 my-5 pl-5">
+      <img src="https://ds1.static.rtbf.be/article/image/624x351/8/2/c/a269962fe1424e1ca3e68c328b9fed61-1464085247.jpg" class="img-fluid" width="100%" height="50vw">
+    </div>
+    <div class="col-lg-4 col-md-4 col-sm-11 col-xs-11 my-5">
+      <h5 class="my-2 text-muted">Nom du Vendeur</h5>
+      <h2>Garfield</h2>
+
+      <h1><strong>5,99€</strong></h1>
+
+      <p>Description: J'ai pris cette photo de mon chat devant la terrasse, il est beau non?</p>
+
+      <br>
+      <a href="#" class="btn btn-secondary">Ajouter au panier</a>
+    </div>
+  </div>
+</div>
