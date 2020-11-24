@@ -12,7 +12,7 @@
       <p><%= @product.description %></p>
 
       <br>
-      <a href="#" class="btn btn-secondary">Ajouter au panier</a>
+      <%= link_to  "Ajouter au panier", line_items_path(product_id: @product.id), method: :post, class:"btn btn-secondary" %>
     </div>
   </div>
 </div>
