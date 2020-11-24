@@ -225,8 +225,8 @@ DEPENDENCIES
   byebug
   capybara (>= 2.15)
   devise
-  dotenv-rails
   dotenv
+  dotenv-rails
   faker
   font-awesome-rails
   jbuilder (~> 2.7)
