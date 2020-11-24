@@ -27,9 +27,9 @@
                   </div>
                   <div>
                     <div class="def-number-input number-input safari_only mb-0 w-100">
-                      <i class="fas fa-minus"></i>
+                      <%= link_to  "", remove_quantity_path(line_item.id), method: :put, class:"fas fa-minus" %>
                       <span class="h6 mx-4"><%= line_item.quantity %></span>
-                      <i class="fas fa-plus"></i>
+                      <%= link_to  "", add_quantity_path(line_item.id), method: :put, class:"fas fa-plus" %>
                     </div>
                     <small id="passwordHelpBlock" class="form-text text-muted text-center">
                       (Note, 1 piece)
@@ -38,7 +38,7 @@
                 </div>
                 <div class="d-flex justify-content-between align-items-center">
                   <div>
-                    <a href="#!" type="button" class="btn btn-outline-danger"><i class="fas fa-trash-alt mr-1"></i> Supprimer l'article </a>
+                    <%= link_to  " Supprimer l'article", line_item_path(line_item.id), method: :delete, class: "btn btn-outline-danger fas fa-trash-alt mr-1"  %>
                   </div>
                   <p class="mb-0"><span><strong id="summary"><%= line_item.product.price %> €</strong></span></p class="mb-0">
                 </div>
