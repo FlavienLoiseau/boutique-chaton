@@ -43,8 +43,9 @@ class CheckoutController < ApplicationController
         cart = Cart.last
         cart.is_paid = true
         cart.save
-       
 
+        #Envoie un email récapitulatif du paiement à l'utilisateur
+        UserMailer.checkout_success(self).deliver_now
     end
     def cancel
     end
