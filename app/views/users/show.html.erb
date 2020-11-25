@@ -17,6 +17,7 @@
     <li class="list-group-item">
       <b>Email : <%= @user.email %></b>
     </li>
+    <% if @user.address.present? %>
     <li class="list-group-item">
       <b>Adresse : <%= @user.address.street_number %> <%= @user.address.street %></b>
     </li>
@@ -29,6 +30,31 @@
     <li class="list-group-item">
       <b>Ville : <%= @user.address.country %></b>
     </li>
+    <% end %>
   </ul>
   <%= link_to  "Éditer mon profil", edit_user_path(@user.id), class:"btn btn-primary", style:"color:white" %>
+  <div class="d-flex row">
+    <h1 class="text-center mt-4 ml-5">Mon historique de commandes</h1>
+  </div>
+
+  <% if current_user.carts.exists? %>
+  <ul class="list-group my-4 text-left">
+    <% @user.carts.each do |cart| %>
+      <% if cart.is_paid == true %>
+        <li class="list-group-item">
+          <b>Commande effectuée le:</b> <%= cart.created_at %>
+          </br>
+          <b>Vos produits:</b>
+          <% cart.line_items.each do |item| %>
+            <p>- <%=item.product.title%></p>
+          <%end%>
+          <p><b>Coût: </b><%=cart.total%>€</p>
+          <p><b>Numéro de commande: </b><%=cart.id%>/<%=current_user.id%></p>
+        </li>
+      <%end%>
+    <%end%>
+    <%end%>
+
+    
+  </ul>
 </div>
