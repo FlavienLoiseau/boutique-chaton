@@ -4387,6 +4387,7 @@ input[type="button"].btn-block {
   -ms-flex-pack: justify;
   justify-content: space-between;
   padding: 0.5rem 1rem;
+  height:62px;
 }
 
 .navbar .container,
@@ -4801,8 +4802,7 @@ input[type="button"].btn-block {
 }
 
 .card:hover {
-    margin-top: 1px;
-    box-shadow:  1px 1px 2px 3px #E8E8E8;
+    box-shadow:  2px 2px 2px 3px #E8E8E8;
 }
 
 .card-top-image {
@@ -5337,7 +5337,6 @@ a.badge-dark:focus, a.badge-dark.focus {
   padding: 2rem 1rem;
   margin-bottom: 2rem;
   background-color: #fafafa;
-  border-radius: 0.3rem;
 }
 
 @media (min-width: 576px) {
