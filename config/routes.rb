@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :line_items
   resources :carts
   devise_for :users
+  resources :users, only: [:show, :update, :edit]
   resources :products
   scope '/checkout' do
     post 'create', to: 'checkout#create', as: 'checkout_create'
