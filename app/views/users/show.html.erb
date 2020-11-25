@@ -42,7 +42,7 @@
     <% @user.carts.each do |cart| %>
       <% if cart.is_paid == true %>
         <li class="list-group-item">
-          <b>Commande effectuée le:</b><%=cart.created_at.time.strftime("%-d/%-m/%y à %H:%M") %>
+          <b>Commande effectuée le : </b><%=cart.created_at.time.strftime("%-d/%-m/%y à %H:%M") %>
           </br>
           <b>Vos produits:</b>
           <% cart.line_items.each do |item| %>
