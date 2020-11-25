@@ -39,6 +39,11 @@ class CheckoutController < ApplicationController
     end
 
     def success
+        #Passe le statut du panier payé en is_paid true (à la place d'avoir une table commande passée)
+        cart = Cart.last
+        cart.is_paid = true
+        cart.save
+       
 
     end
     def cancel
