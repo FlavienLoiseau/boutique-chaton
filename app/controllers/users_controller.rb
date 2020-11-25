@@ -1,6 +1,6 @@
-require 'pry'
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :update, :edit]
+  before_action :authenticate_user!
   
   def edit
     @address = Address.new
