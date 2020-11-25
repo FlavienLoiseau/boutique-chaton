@@ -1,0 +1,34 @@
+<div class="container">
+  <div class="d-flex row">
+    <% if @user.avatar.attached? %>
+    <%= image_tag  @user.avatar, class:"img-avatar float-right mt-2" %>
+    <% else %>
+    <img src="https://highstylife.com/media/2017/04/aidan-meyer-150933-1140x760.jpg" alt="Avatar" class="img-avatar float-right mt-2">
+    <% end %>
+    <h1 class="text-center mt-4 ml-5">Ma page profil</h1>
+  </div>
+  <ul class="list-group my-4 text-left">
+    <li class="list-group-item">
+      <b>Prénom : <%= @user.first_name %></b>
+    </li>
+    <li class="list-group-item">
+      <b>Nom : <%= @user.last_name %></b>
+    </li>
+    <li class="list-group-item">
+      <b>Email : <%= @user.email %></b>
+    </li>
+    <li class="list-group-item">
+      <b>Adresse : <%= @user.address.street_number %> <%= @user.address.street %></b>
+    </li>
+    <li class="list-group-item">
+      <b>Code postal : <%= @user.address.zip_code %></b>
+    </li>
+    <li class="list-group-item">
+      <b>Ville : <%= @user.address.city %></b>
+    </li>
+    <li class="list-group-item">
+      <b>Ville : <%= @user.address.country %></b>
+    </li>
+  </ul>
+  <%= link_to  "Éditer mon profil", edit_user_path(@user.id), class:"btn btn-primary", style:"color:white" %>
+</div>
