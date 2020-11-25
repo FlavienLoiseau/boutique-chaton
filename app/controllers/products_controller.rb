@@ -1,13 +1,13 @@
 class ProductsController < ApplicationController
   require 'mini_magick'
   before_action :set_product, only: [:show, :destroy, :update]
+  before_action :is_admin, only: [:create, :destroy, :update]
 
   def index
     @products = Product.order('created_at ASC')
   end
 
-  def new
-    @product=Product.new
+  def show
   end
 
   def create
@@ -21,16 +21,6 @@ class ProductsController < ApplicationController
     else
       render 'new'
     end
-
-  end
-
-  def show
-
-  end
-
-  def destroy
-    @product.destroy
-    redirect_to '/'
   end
 
   def update
@@ -45,5 +35,10 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
   end
 
+  def is_admin
+    unless current_user.is_admin == true
+      redirect_to root_path
+    end
+  end
 
 end
