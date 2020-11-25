@@ -7,7 +7,12 @@
     <% @products.each do |product| %>
     <div class="col-lg-3 col-md-5 col-sm-10 col-xs-12 m-4" style="min-width:350px">
       <div class="card mb-3 h-100">
+        <% if product.image.attached? %>
+        <%= image_tag  product.image, class:"card-top-image d-block user-select-none img-fluid", width:"100%", focusable:"false", role:"img", preserveAspectRatio:"xMidYMid slice", viewBox:"0 0 318 180", style:"font-size:1.125rem;text-anchor:middle"  %>
+        <% else %>
         <img src="https://www.popfixion.fr/upload/news/unes/20150301_034854Felix_thewonderful_cat.jpg" class="card-top-image d-block user-select-none img-fluid" width="100%" height="200" aria-label="Placeholder: Image cap" focusable="false" role="img" preserveAspectRatio="xMidYMid slice" viewBox="0 0 318 180" style="font-size:1.125rem;text-anchor:middle">
+        <% end %>
+
         <div class="card-body">
           <h5 class="card-title"><%= product.title %></h5>
           <p class="card-text"><%= product.description %></p>
