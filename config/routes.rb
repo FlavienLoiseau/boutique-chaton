@@ -1,5 +1,6 @@
 
 Rails.application.routes.draw do
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   root 'products#index'
   put 'line_items/:id/add', to: 'line_items#add_quantity', as: 'add_quantity'
   put 'line_items/:id/remove', to: 'line_items#remove_quantity', as: 'remove_quantity'
