@@ -7,9 +7,13 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'faker'
 
+
+# Product.destroy_all
+
 LineItem.destroy_all
 Cart.destroy_all
 Product.destroy_all
+
 
 
 
