@@ -2,26 +2,10 @@ class CartsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_cart, only: [:show, :edit, :update, :destroy, :is_my_cart]
   before_action :is_my_cart, only: [:show, :create, :update]
-  # GET /carts
-  # GET /carts.json
-  # def index
-  #   @carts = Cart.all
-  # end
 
-  # GET /carts/1
-  # GET /carts/1.json
   def show
 
   end
-
-  # GET /carts/new
-  # def new
-  #   @cart = Cart.new
-  # end
-
-  # GET /carts/1/edit
-  # def edit
-  # end
 
   def create
     @cart = Cart.new
@@ -49,30 +33,19 @@ class CartsController < ApplicationController
     end
   end
 
-  # DELETE /carts/1
-  # DELETE /carts/1.json
-  # def destroy
-  #   @cart.destroy
-  #   respond_to do |format|
-  #     format.html { redirect_to carts_url, notice: 'Cart was successfully destroyed.' }
-  #     format.json { head :no_content }
-  #   end
-  # end
-
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_cart
-      @cart = Cart.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def cart_params
-      params.fetch(:cart, {})
-    end
+  def set_cart
+    @cart = Cart.find(params[:id])
+  end
 
-    def is_my_cart
-      unless current_user == @cart.user
-        redirect_to root_path
-      end
+  def cart_params
+    params.fetch(:cart, {})
+  end
+
+  def is_my_cart
+    unless current_user == @cart.user
+      redirect_to current_user.carts.last
     end
+  end
 end

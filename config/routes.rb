@@ -4,11 +4,11 @@ Rails.application.routes.draw do
   root 'products#index'
   put 'line_items/:id/add', to: 'line_items#add_quantity', as: 'add_quantity'
   put 'line_items/:id/remove', to: 'line_items#remove_quantity', as: 'remove_quantity'
-  resources :line_items
+  resources :line_items, only: [:create, :update, :destroy]
   resources :carts, only: [:show, :create, :update ]
   devise_for :users
   resources :users, only: [:show, :update, :edit]
-  resources :products
+  resources :products, only: [:index, :show, :update, :destroy]
   scope '/checkout' do
     post 'create', to: 'checkout#create', as: 'checkout_create'
     get 'cancel', to: 'checkout#cancel', as: 'checkout_cancel'
