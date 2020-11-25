@@ -1,0 +1,13 @@
+Commande n°<%=@cart.id%>/<%=user.id%>
+==========================================================
+
+Bonjour <%= user.first_name %>, merci pour votre achat !
+ 
+Nous préparons l'envoi de votre commande. Nous vous informerons lorsque celle-ci aura été envoyée.
+
+Résumé de la commande :
+
+<% @cart.line_items.each do |item| %>
+  - <%=item.product.title%>
+<%end%>
+Coût: <%=@cart.total%>€
