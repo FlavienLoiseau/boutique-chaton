@@ -1,4 +1,5 @@
 class CartsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_cart, only: [:show, :edit, :update, :destroy]
 
   # GET /carts
@@ -24,7 +25,8 @@ class CartsController < ApplicationController
   # POST /carts
   # POST /carts.json
   def create
-    
+    @cart = Cart.new
+    @cart.user = current_user
     respond_to do |format|
       if @cart.save
         format.html { redirect_to @cart, notice: 'Cart was successfully created.' }
