@@ -1,6 +1,6 @@
-require 'pry'
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :update, :edit]
+  before_action :authenticate_user!
   
   def edit
     @address = Address.new
@@ -8,15 +8,14 @@ class UsersController < ApplicationController
 
   def update
     @user.update(first_name: params.dig(:user, :first_name), last_name: params.dig(:user, :last_name))
-
-    ad = Address.create(street_number:params.dig(:user, :address, :street_number), street: params.dig(:user, :address, :street),
-                    zip_code:params.dig(:user, :address, :zip_code), city: params.dig(:user, :address, :city), country:params.dig(:user, :address, :country), user_id: @user.id)
-    puts ad.errors.messages
-    if ad.save
-      redirect_to user_path(@user.id)
+    if @user.address.present?
+      ad = Address.update(street_number:params.dig(:user, :address, :street_number), street: params.dig(:user, :address, :street),
+                    zip_code:params.dig(:user, :address, :zip_code), city: params.dig(:user, :address, :city), country:params.dig(:user, :address, :country), user_id: @user.id)  
     else
-      render 'edit'
-    end 
+      ad = Address.create(street_number:params.dig(:user, :address, :street_number), street: params.dig(:user, :address, :street),
+                    zip_code:params.dig(:user, :address, :zip_code), city: params.dig(:user, :address, :city), country:params.dig(:user, :address, :country), user_id: @user.id)
+    end
+    redirect_to user_path(@user.id)
     
   end
 

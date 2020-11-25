@@ -1,0 +1,47 @@
+<div class="jumbotron card card-image" style="background-image: url(https://images.unsplash.com/photo-1545658969-19d8799171f3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80); background-position: 95% 76%;">
+  <div class="text-white text-center py-5 px-4">
+      <h2 class="card-title h1-responsive pt-3 mb-5 font-bold"><strong>Contactez-nous</strong></h2>
+      <p class="mx-7 mb-7">On ne vous répondra sûrement jamais...</p>
+  </div>
+</div>
+
+<div class="row justify-content-center">
+  <div class="col-md-9 mb-md-0 mb-5">
+    <form id="contact-form" name="contact-form" action="mail.php" method="POST">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="md-form mb-0">
+            <input type="text" id="name" name="name" class="form-control">
+            <label for="name" class="">Votre petit nom</label>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="md-form mb-0">
+            <input type="text" id="email" name="email" class="form-control">
+            <label for="email" class="">Votre adresse mail</label>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="md-form mb-0">
+            <input type="text" id="subject" name="subject" class="form-control">
+            <label for="subject" class="">Objet</label>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="md-form">
+            <textarea type="text" id="message" name="message" rows="2" class="form-control md-textarea"></textarea>
+            <label for="message">Votre message</label>
+          </div>
+        </div>
+      </div>
+    </form>
+    <div class="text-center text-md-left">
+      <a class="btn btn-primary" onclick="document.getElementById('contact-form').submit();">Envoyer</a>
+    </div>
+    <div class="status"></div>
+  </div>
+</div><br><br>

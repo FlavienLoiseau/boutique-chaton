@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<section>
+<section class="container">
   <div class="row mt-4">
     <div class="col-lg-8">
       <div class="mb-3">
@@ -10,7 +10,11 @@
           <div class="row mb-4">
             <div class="col-md-5 col-lg-3 col-xl-3">
               <div class="view zoom overlay z-depth-1 rounded mb-3 mb-md-0">
+                <% if line_item.product.image.attached? %>
+                <%= image_tag  line_item.product.image, class:"img-fluid w-100" %>
+                <% else %>
                 <img class="img-fluid w-100" src="https://ds1.static.rtbf.be/article/image/624x351/8/2/c/a269962fe1424e1ca3e68c328b9fed61-1464085247.jpg" alt="Sample">
+                <% end %>
                 <a href="#!">
                   <div class="mask">
                     <div class="mask rgba-black-slight"></div>

@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   put 'line_items/:id/add', to: 'line_items#add_quantity', as: 'add_quantity'
   put 'line_items/:id/remove', to: 'line_items#remove_quantity', as: 'remove_quantity'
   resources :line_items
-  resources :carts
+  resources :carts, only: [:show, :create, :update ]
   devise_for :users
   resources :users, only: [:show, :update, :edit]
   resources :products
@@ -16,5 +16,7 @@ Rails.application.routes.draw do
   end
 
   get 'home/index'
+  get 'home/about', as: 'about'
+  get 'home/contact', as: 'contact'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
