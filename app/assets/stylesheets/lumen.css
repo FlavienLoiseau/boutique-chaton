@@ -101,6 +101,10 @@ margin-top: 75px;
   border: 1px solid #DCDCDC;
 }
 
+.description-show {
+ /* min-width: 400px; */
+}
+
 [tabindex="-1"]:focus:not(:focus-visible) {
   outline: 0 !important;
 }
@@ -528,6 +532,11 @@ mark,
 .img-fluid {
   max-width: 100%;
   height: auto;
+}
+
+.img-show {
+  border-radius: .5em;
+  border: 1px solid gray;
 }
 
 .img-thumbnail {
@@ -2550,6 +2559,7 @@ textarea.form-control {
   }
 }
 
+
 .btn {
   display: inline-block;
   font-weight: 700;
@@ -4386,8 +4396,7 @@ input[type="button"].btn-block {
   align-items: center;
   -ms-flex-pack: justify;
   justify-content: space-between;
-  padding: 0.5rem 1rem;
-  height:62px;
+  padding: 0.6rem 1rem;
 }
 
 .navbar .container,
