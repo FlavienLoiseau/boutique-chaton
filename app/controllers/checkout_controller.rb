@@ -24,7 +24,7 @@ class CheckoutController < ApplicationController
             line_items: [{
                     name: "Votre panier",
                     description: cart_product_names ,
-                    amount: cart.total.to_i*100,
+                    amount: (cart.total.*100).to_i,
                     currency: 'eur',
                     quantity: 1
                   }],
