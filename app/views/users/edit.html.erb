@@ -12,14 +12,16 @@
       <%= form_with model: @user, local: true do |f| %>
       <%= f.text_field :first_name, class: 'form-control m-3' %>
       <%= f.text_field :last_name, class: 'form-control m-3' %>
-      <%= f.text_field :street_number, class: 'form-control m-3', placeholder:"Numéro de la rue" %>
-      <%= f.text_field :street, class: 'form-control m-3', placeholder:"Rue" %>
-      <%= f.text_field :zip_code, class: 'form-control m-3', placeholder:"Code postal" %>
-      <%= f.text_field :city, class: 'form-control m-3', placeholder:"Ville" %>
-      <%= f.text_field :country, class: 'form-control m-3', placeholder:"Pays" %>
       <%= f.file_field :avatar, class:"m-3" %>
+      <%= f.fields_for @address, local: true do |address| %>
+      <%= address.text_field :street_number, class: 'form-control m-3', placeholder:"Numéro de la rue" %>
+      <%= address.text_field :street, class: 'form-control m-3', placeholder:"Rue" %>
+      <%= address.text_field :zip_code, class: 'form-control m-3', placeholder:"Code postal" %>
+      <%= address.text_field :city, class: 'form-control m-3', placeholder:"Ville" %>
+      <%= address.text_field :country, class: 'form-control m-3', placeholder:"Pays" %>
+      <% end %>
       <div class="mt-3">
-        <%= f.submit "Sauvegarder", class:"btn btn-primary", style:"color:white" %>
+        <%= f.submit "Sauvegarder info perso", class:"btn btn-primary", style:"color:white" %>
       </div>
       <% end %>
     </div>
