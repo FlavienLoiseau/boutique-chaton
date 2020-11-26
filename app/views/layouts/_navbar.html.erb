@@ -21,19 +21,20 @@
 
 
       <% if current_user.present? && current_user.carts.exists? && current_user.carts.last.is_paid == false %>
-        <div class="navbar-cart mr-5">
+      <%= link_to cart_path(current_user.carts.last) do %>
+        <div class="navbar-cart mr-5", id="navbarCart", onclick>
           <div class="d-flex row">
-            <div class="">
-              <%= link_to cart_path(current_user.carts.last), class: "cart nav-item nav-link"  do %>
+            <div class="cart nav-item nav-link">
                 <i class="fas fa-cart-arrow-down" style="color: white; font-size: 18px;"></i>
-              <% end %>
             </div>
-            <div class="pr-3">
-              <small style="color:white", id="cart">Articles (<%= number_items(current_user) %>)<br>
+            <div class="pr-3 ">
+              <small style="color:white; ", id="cart">Articles (<%= number_items(current_user) %>)<br>
               <strong><span><%= sum_items(current_user) %> €</span></strong></small>
             </div>
           </div>
         </div>
+        <% end %>
+
       <% end %>
 
 
