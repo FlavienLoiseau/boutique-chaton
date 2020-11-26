@@ -10,7 +10,14 @@ for (var i = 0; i < h5Tags.length; i++) {
   }
 };
 
+<% if @line_item.quantity > 1 %>
+found.parentNode.nextSibling.nextSibling.childNodes[1].childNodes[1].style.display="inline";
+<%else%>
+found.parentNode.nextSibling.nextSibling.childNodes[1].childNodes[1].style.display="none";
+<%end%>
+
 found.parentNode.nextSibling.nextSibling.childNodes[1].childNodes[3].innerText="<%=@line_item.quantity%>";
 found.parentNode.parentNode.parentNode.nextSibling.nextSibling.childNodes[3].childNodes[1].innerHTML="<strong ><%= @line_item.line_item_total %> €</strong>";
 document.getElementById("total").childNodes[1].innerHTML="<span><strong><%= @line_item.cart.total %></strong></span>";
 document.getElementById("cart").innerHTML="Articles (<%= number_items(current_user) %>)<br><strong><span><%= sum_items(current_user) %> €" ;
+document.getElementById("jpp-chaton-2-merde").innerHTML="Votre panier (<span><%= number_items(current_user) %></span> articles)";

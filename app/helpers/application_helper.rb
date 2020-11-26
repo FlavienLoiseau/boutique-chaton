@@ -9,7 +9,7 @@ module ApplicationHelper
   end
 
   def number_items(user)
-    user.carts.last.line_items.count
+    user.carts.last.line_items.to_a.sum(&:quantity)
   end
 
   def sum_items(user)

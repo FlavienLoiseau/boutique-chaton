@@ -3,7 +3,7 @@
     <div class="col-lg-8">
       <div class="mb-3">
         <div class="pt-4 wish-list">
-          <h5 class="mb-4">Votre panier (<span><%= @cart.line_items.count %></span> articles)</h5>
+          <h5 class="mb-4", id="jpp-chaton-2-merde">Votre panier (<span><%= number_items(current_user) %></span> articles)</h5>
           <% @cart.line_items.each_with_index do |line_item, index| %>
           <div class="row mb-4">
             <div class="col-md-5 col-lg-3 col-xl-3">
@@ -29,7 +29,11 @@
                   </div>
                   <div>
                     <div class="def-number-input number-input safari_only mb-0 w-100">
+                    <% if line_item.quantity > 1 %>
                       <%= link_to  "", remove_quantity_path(line_item.id), method: :put, class:"fas fa-minus", remote: true %>
+                    <% else %>
+                    <%= link_to  "", remove_quantity_path(line_item.id), method: :put, class:"fas fa-minus", remote: true, style:"display:none" %>
+                    <%end%>
                       <span class="h6 mx-4"><%= line_item.quantity %></span>
                       <%= link_to  "", add_quantity_path(line_item.id), method: :put, class:"fas fa-plus", remote: true %>
                     </div>
