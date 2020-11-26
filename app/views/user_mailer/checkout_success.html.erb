@@ -8,5 +8,10 @@
 
 <% @cart.line_items.each do |item| %>
   <p>- <%=item.product.title%></p>
+  <% if item.product.image.attached? %>
+    <p><%= image_tag  item.product.image %></p>
+    <% else %>
+    <p><img src="https://www.popfixion.fr/upload/news/unes/20150301_034854Felix_thewonderful_cat.jpg"></p>
+  <% end %>
 <%end%>
 <p>Prix total: <%=@cart.total%>€</p>
