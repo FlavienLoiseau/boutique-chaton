@@ -40,18 +40,18 @@
   <% if current_user.carts.exists? %>
   <ul class="list-group my-4 text-left">
     <% @user.carts.each do |cart| %>
-      <% if cart.is_paid == true %>
-        <li class="list-group-item">
-          <b>Commande effectuée le : </b><%=cart.created_at.time.strftime("%-d/%-m/%y à %H:%M") %>
-          </br>
-          <b>Vos produits:</b>
-          <% cart.line_items.each do |item| %>
-            <p>- <%=item.product.title%></p>
-          <%end%>
-          <p><b>Coût: </b><%=cart.total%>€</p>
-          <p><b>Numéro de commande: </b><%=cart.id%>/<%=current_user.id%></p>
-        </li>
+    <% if cart.is_paid == true %>
+    <li class="list-group-item">
+      <b>Commande effectuée le : </b><%=cart.created_at.time.strftime("%-d/%-m/%y à %H:%M") %>
+      </br>
+      <b>Vos produits:</b>
+      <% cart.line_items.each do |item| %>
+      <p>- <%=item.product.title%></p>
       <%end%>
+      <p><b>Coût: </b><%=cart.total%>€</p>
+      <p><b>Numéro de commande: </b><%=cart.id%>/<%=current_user.id%></p>
+    </li>
+    <%end%>
     <%end%>
     <%end%>
 

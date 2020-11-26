@@ -9,6 +9,8 @@ class UsersController < ApplicationController
 
   def update
     @user.update(first_name: params.dig(:user, :first_name), last_name: params.dig(:user, :last_name))
+    @user.avatar.attach(params.dig(:user, :avatar))
+    @user.save
     if @user.address.present?
       ad = Address.update(street_number:params.dig(:user, :address, :street_number), street: params.dig(:user, :address, :street),
                     zip_code:params.dig(:user, :address, :zip_code), city: params.dig(:user, :address, :city), country:params.dig(:user, :address, :country), user_id: @user.id)
