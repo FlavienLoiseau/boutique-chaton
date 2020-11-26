@@ -7,4 +7,12 @@ module ApplicationHelper
       when 'alert' then "alert-warning"
     end
   end
+
+  def number_items(user)
+    user.carts.last.line_items.count
+  end
+
+  def sum_items(user)
+    user.carts.last.line_items.to_a.sum(&:line_item_total)
+  end
 end
