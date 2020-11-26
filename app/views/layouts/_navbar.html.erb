@@ -21,8 +21,8 @@
 
 
       <% if current_user.present? && current_user.carts.exists? && current_user.carts.last.is_paid == false %>
-      <%= link_to cart_path(current_user.carts.last) do %>
-        <div class="navbar-cart mr-5", id="navbarCart", onclick>
+      <%= link_to cart_path(current_user.carts.last), id:"navbarCart" do %>
+        <div class="navbar-cart mr-5">
           <div class="d-flex row">
             <div class="cart nav-item nav-link">
                 <i class="fas fa-cart-arrow-down" style="color: white; font-size: 18px;"></i>
