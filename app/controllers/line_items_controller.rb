@@ -10,7 +10,7 @@ class LineItemsController < ApplicationController
 
     respond_to do |format|
       if @line_item.save
-        format.html { redirect_to @line_item.cart, notice: 'Line item was successfully created.' }
+        format.html { redirect_to @line_item.cart, notice: "L'article a bien été ajouté à ton panier" }
         format.json { render :show, status: :created, location: @line_item }
       else
         format.html { render :new }
@@ -24,7 +24,7 @@ class LineItemsController < ApplicationController
     @line_item.save
     respond_to do |format|
       if @line_item.save
-        format.html { redirect_to @line_item.cart, notice: 'Line item was successfully updated.' }
+        format.html { redirect_to @line_item.cart }
         format.js{}
         format.json { render :show, status: :ok, location: @line_item }
       else
@@ -39,7 +39,7 @@ class LineItemsController < ApplicationController
     @line_item.save
     respond_to do |format|
       if @line_item.save
-        format.html { redirect_to @line_item.cart, notice: 'Line item was successfully updated.' }
+        format.html { redirect_to @line_item.cart }
         format.js{ }
         format.json { render :show, status: :ok, location: @line_item }
       else
@@ -52,7 +52,7 @@ class LineItemsController < ApplicationController
   def destroy
     @line_item.destroy
     respond_to do |format|
-      format.html { redirect_to @line_item.cart, notice: 'Line item was successfully destroyed.' }
+      format.html { redirect_to @line_item.cart, notice: "L'article a bien été supprimé de votre panier" }
       format.json { head :no_content }
     end
   end

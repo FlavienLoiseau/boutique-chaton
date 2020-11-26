@@ -9,6 +9,8 @@ class UsersController < ApplicationController
 
   def update
     @user.update(first_name: params.dig(:user, :first_name), last_name: params.dig(:user, :last_name))
+    @user.avatar.attach(params.dig(:user, :avatar))
+    @user.save
     if @user.address.present?
       ad = Address.update(street_number:params.dig(:user, :address, :street_number), street: params.dig(:user, :address, :street),
                     zip_code:params.dig(:user, :address, :zip_code), city: params.dig(:user, :address, :city), country:params.dig(:user, :address, :country), user_id: @user.id)
@@ -17,17 +19,15 @@ class UsersController < ApplicationController
                     zip_code:params.dig(:user, :address, :zip_code), city: params.dig(:user, :address, :city), country:params.dig(:user, :address, :country), user_id: @user.id)
     end
     redirect_to user_path(@user.id)
-
   end
 
   def show
-
   end
 
   private
 
   def set_user
-    @user = User.find(params[:id])
+    @user = User.friendly.find(params[:id])
   end
 
   def user_params
@@ -40,7 +40,7 @@ class UsersController < ApplicationController
 
   def is_current_user
     unless current_user == @user
-      redirect_to user_path(current_user.id)
+      redirect_to user_path(current_user)
     end
   end
 
