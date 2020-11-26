@@ -47,6 +47,7 @@ class CheckoutController < ApplicationController
         
         #Envoie un email récapitulatif du paiement à l'utilisateur
         UserMailer.checkout_success(@user).deliver_now
+        UserMailer.new_sale(@user).deliver_now
     end
     def cancel
     end

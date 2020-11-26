@@ -1,0 +1,10 @@
+<p>Hello, <%= @cart.user.first_name %> <%= @cart.user.last_name %> a effectué une nouvelle commande sur Boutique Chaton</p>
+
+<p>Commande n°<%=@cart.id%>/<%=@cart.user.id%></p>
+
+<h3>Voici les articles qu'il ou elle a commandés :</h3>
+
+<% @cart.line_items.each do |item| %>
+  <p>- <%=item.product.title%></p>
+<%end%>
+<p>Prix total: <%=@cart.total%>€</p>

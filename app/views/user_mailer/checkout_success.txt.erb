@@ -9,5 +9,10 @@ Résumé de la commande :
 
 <% @cart.line_items.each do |item| %>
   - <%=item.product.title%>
+  <% if item.product.image.attached? %>
+    <%= image_tag  item.product.image %>
+    <% else %>
+    <img src="https://www.popfixion.fr/upload/news/unes/20150301_034854Felix_thewonderful_cat.jpg">
+  <% end %>
 <%end%>
 Coût: <%=@cart.total%>€

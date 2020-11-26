@@ -1,0 +1,10 @@
+Hello, <%= @cart.user.first_name %> <%= @cart.user.last_name %> a effectué une nouvelle commande sur Boutique Chaton
+
+Commande n°<%=@cart.id%>/<%=@cart.user.id%>
+
+Voici les articles qu'il ou elle a commandés :
+
+<% @cart.line_items.each do |item| %>
+  - <%=item.product.title%>
+<%end%>
+Prix total: <%=@cart.total%>€
