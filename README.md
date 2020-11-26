@@ -9,7 +9,7 @@ Enfin ! Le site boutique des photos de chatons est là !<br>
 <br>
 Vas donc faire un tour par ici --> http://boutique-chaton-development.herokuapp.com/
 <br>
-Sinon, si tu souhaites avoir accès au code, télécharge ou clone ce repo et mets-toi sur la branche development, là où nous avons fait tout notre travail.<br>
+Sinon, si tu souhaites avoir accès au code, télécharge ou clone ce repo (branche development par défaut), là où nous avons fait tout notre travail.<br>
 Comme d'habitude, pour le tester:<br>
 $ bundle install<br>
 $ rails db:migrate db:seed<br>
