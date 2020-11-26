@@ -12,7 +12,7 @@ class CartsController < ApplicationController
     @cart.user = current_user
     respond_to do |format|
       if @cart.save
-        format.html { redirect_to @cart, notice: 'Cart was successfully created.' }
+        format.html { redirect_to @cart }
         format.json { render :show, status: :created, location: @cart }
       else
         format.html { render :new }
@@ -24,7 +24,7 @@ class CartsController < ApplicationController
   def update
     respond_to do |format|
       if @cart.update(cart_params)
-        format.html { redirect_to @cart, notice: 'Cart was successfully updated.' }
+        format.html { redirect_to @cart }
         format.json { render :show, status: :ok, location: @cart }
       else
         format.html { render :edit }
