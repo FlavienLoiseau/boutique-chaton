@@ -6,7 +6,7 @@
       <div class="mb-3">
         <div class="pt-4 wish-list">
           <h5 class="mb-4">Votre panier (<span><%= @cart.line_items.count %></span> articles)</h5>
-          <% @cart.line_items.each do |line_item| %>
+          <% @cart.line_items.each_with_index do |line_item, index| %>
           <div class="row mb-4">
             <div class="col-md-5 col-lg-3 col-xl-3">
               <div class="view zoom overlay z-depth-1 rounded mb-3 mb-md-0">
@@ -31,9 +31,9 @@
                   </div>
                   <div>
                     <div class="def-number-input number-input safari_only mb-0 w-100">
-                      <%= link_to  "", remove_quantity_path(line_item.id), method: :put, class:"fas fa-minus" %>
-                      <span class="h6 mx-4"><%= line_item.quantity %></span>
-                      <%= link_to  "", add_quantity_path(line_item.id), method: :put, class:"fas fa-plus" %>
+                      <%= link_to  "", remove_quantity_path(line_item.id), method: :put, class:"fas fa-minus", remote: true %>
+                      <span class="h6 mx-4", id="quantity<%=index%>"><%= line_item.quantity %></span>
+                      <%= link_to  "", add_quantity_path(line_item.id), method: :put, class:"fas fa-plus", remote: true %>
                     </div>
                     <small id="passwordHelpBlock" class="form-text text-muted text-center">
                       (Note, 1 piece)
@@ -93,7 +93,7 @@
           <h5 class="mb-3">Le total de votre panier</h5>
 
           <ul class="list-group list-group-flush">
-            <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 pb-0">
+            <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 pb-0", id="total" >
               Somme
               <span><%= @cart.total %></span>
             </li>
