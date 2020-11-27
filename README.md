@@ -12,8 +12,9 @@ Vas donc faire un tour par ici --> http://boutique-chaton-development.herokuapp.
 <br>
 <br>
 Si tu souhaites tester l'application en tant qu'administrateur, vous pouvez utiliser les identifiants suivants:<br>
-Login: bob-delalitiere@yopmail.com<br>
-Mot de passe: azerty<br><br>
+```Login: bob-delalitiere@yopmail.com<br>
+Mot de passe: azerty``` 
+<br><br>
 Sinon, si tu souhaites avoir accès au code, télécharge ou clone ce repo (branche development par défaut), là où nous avons fait tout notre travail.<br>
 Comme d'habitude, pour le tester:<br>
 $ bundle install<br>
